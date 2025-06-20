@@ -18,15 +18,16 @@
      
       width: 100%;
       padding: 1px 0;
-     
        box-shadow: 0 2px 5px rgb(253, 247, 247);
     }
    
     .titulo {
-     padding: 5px;
+     padding: 0 300px;
+     
+
       font-family: Georgia, 'Times New Roman', Times, serif;
-      font-size: 50px;
-   
+      font-size: 30px;
+      
     }
     .mensaje {
       display: none; 
@@ -34,12 +35,12 @@
     .Categoria {
       display: none;
       font-size: 36px;
-      color: #00bfff;
+      color: #043c4e;
     }
     .Categoria2 {
       display: none;
       font-size: 36px;
-      color: #00bfff;
+      color: #03607e;
     }
     .Categoria3 {
       display: none;
@@ -139,16 +140,35 @@
       width: calc(20% - 15px);
       box-sizing: border-box;
       display: none;
+      box-shadow: 0 0 0 3px rgba(190, 204, 218, 0.4);
+    
     }
 
-    .muy-facil { border-color: #00bfff; }
-    .facil { border-color: #2ecc71; }
-    .medio { border-color: #f1c40f; }
-    .dificil { border-color: #e74c3c; }
+    .muy-facil { 
+      border-color: #00bfff; 
+      width: 25%;
+      box-sizing: border-box;
+      
+    }
+    .facil {
+       border-color: #2ecc71;
+      width: 25%;
+      box-sizing: border-box;
+      }
+    .medio { 
+      border-color: #f1c40f;
+      width: 25%;
+      box-sizing: border-box;
+     }
+    .dificil {
+       border-color: #e74c3c;
+        width: 25%;
+      box-sizing: border-box;
+      }
 
     .card h3 {
       margin-top: 0;
-      font-size: 16px;
+      font-size: 14px;
     }
 
     .card .actions {
@@ -157,6 +177,8 @@
       flex-wrap: wrap;
       gap: 8px;
       justify-content: center;
+
+      
     }
 
     .card .actions a, .card .actions button {
@@ -254,6 +276,9 @@
   
 }
 
+.tipo {
+  font-size: 18px;
+}
   </style>
   
 </head>
@@ -277,11 +302,13 @@
   </div>
   
   
-  <h1 id="mensaje">Categoria Muy-Facil</h1>
-  <h1 id="mensaje2">Categoria Facil</h1>
-   <h1 id="mensaje3">Categoria Medio</h1>
-  <h1 id="mensaje4">Categoria Dificil</h1>
-  <h1 id="mensaje5">Categoria Todas</h1>
+  <h1 class="tipo" id="mensaje">Categoria Muy-Facil</h1>
+  <h1 class="tipo"  id="mensaje2">Categoria Facil</h1>
+   <h1 class="tipo"  id="mensaje3">Categoria Medio</h1>
+  <h1 class="tipo"  id="mensaje4">Categoria Dificil</h1>
+  <h1 class="tipo"  id="mensaje5">Categoria Todas</h1>
+
+
   <div class="container">
     
     <!-- Muy fácil -->
@@ -586,6 +613,10 @@
         document.getElementById("imagen0").style.display = "none"
 
       </script>
+
+      
+  </body>
+</html>
 
       
   </body>
