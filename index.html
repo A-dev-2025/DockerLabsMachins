@@ -224,6 +224,36 @@
 
     }
 
+    #searchInput {
+      background-color: #00000056;
+      color: #d3cdcd;
+      position: relative;
+      left: 80px;
+    
+      
+  width: 80%;
+  max-width: 300px;        /* Ancho máximo */
+  height: 35px;            /* Altura */
+  
+  font-size: 18px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  outline: none;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  font-family: 'Segoe UI', sans-serif;
+  padding-left: 20px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+#searchInput:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 3px rgba(74, 145, 226, 0.523);
+  
+}
+
   </style>
   
 </head>
@@ -241,6 +271,9 @@
     <button class="btn-medio" onclick="filterCards('medio'), mostrar_mensaje3('mensaje3')">Medio (<span id="count-medio">0</span>)</button>
     <button class="btn-dificil" onclick="filterCards('dificil'), mostrar_mensaje4('mensaje4')">Difícil (<span id="count-dificil">0</span>)</button>
     <button class="btn-todos" onclick="filterCards('todos'), mostrar_mensaje5('mensaje5')">Todos (<span id="count-todos">0</span>)</button>
+    <div class="search-container">
+    <input type="text" id="searchInput" placeholder="🔎  Buscar Maquina..."></div>
+  
   </div>
   
   
@@ -250,7 +283,6 @@
   <h1 id="mensaje4">Categoria Dificil</h1>
   <h1 id="mensaje5">Categoria Todas</h1>
   <div class="container">
-
     
     <!-- Muy fácil -->
     <div class="card muy-facil"><h3>Lab Muy Fácil 1</h3><div class="actions"><a href="https://mega.nz/file/ejemplo1" target="_blank">​📂Descargar</a><button onclick="mostrarCuadro1('imagen1')">💡​​Descripción</button><button onclick="window.open('reportes/reportOpenStudio.txt', '_blank')" >📖 ​Info</button></div></div>
@@ -258,7 +290,9 @@
     <div class="card muy-facil"><h3>Lab Muy Fácil 3</h3><div class="actions"><a href="https://mega.nz/file/ejemplo3" target="_blank">​📂Descargar</a><button>​💡​​Descripción</button><button>📖     ​Info</button></div></div>
 
     <!-- Fácil -->
-    <div class="card facil"><h3>OpenStudio</h3><div class="actions"><a href="https://mega.nz/file/tGQy1QRL#h2NZdngmemM12iAeE3wqi9jv1xO9Q1TWd6XUxZwOauE" target="_blank">​📂​Descargar</a><button onclick="mostrarCuadro0('imagen0')" >💡​Descripción</button><button onclick="window.open('reportes/reportOpenStudio.txt', '_blank')" >📖 ​Info</button></div></div>
+     
+     
+     <div class="card facil"><h3>OpenStudio</h3><div class="actions"><a href="https://mega.nz/file/tGQy1QRL#h2NZdngmemM12iAeE3wqi9jv1xO9Q1TWd6XUxZwOauE" target="_blank">​📂​Descargar</a><button onclick="mostrarCuadro0('imagen0')" >💡​Descripción</button><button onclick="window.open('reportes/reportOpenStudio.txt', '_blank')" >📖 ​Info</button></div></div>
     <div class="card facil"><h3>Web2</h3><div class="actions"><a href="https://mega.nz/file/MHBSULLS#FdtVzCFmLuvrt3eT467dnD0TTr_KIxeaZjq2NNsxCRY" target="_blank">​📂​Descargar</a><button onclick="mostrarCuadro1('imagen1')" >💡​Descripción</button><button onclick="window.open('reportes/reporterWEB2.txt', '_blank')" >📖  ​Info</button></div></div>
     <div class="card facil"><h3>MyLogin</h3><div class="actions"><a href="https://mega.nz/file/wGpHSQRS#YKY4qc-ny6um0KpIC1uo7e-ClnKIf7nd68PsFpwNGTc" target="_blank">​📂​Descargar</a><button onclick="mostrarCuadro2('imagen2')" >💡​Descripción</button><button onclick="window.open('reportes/reporterMyLogin.txt', '_blank')" >📖 ​Info</button></div></div>
     <div class="card facil"><h3>Trust</h3><div class="actions"><a href="https://mega.nz/file/4TAEWL5L#P0NymsYGoGsVIvjPwEfDJC9UVY-6CkwFgka85-K5W7w" target="_blank">​📂​Descargar</a><button onclick="mostrarCuadro4('imagen4')">💡​Descripción</button><button onclick="window.open('reportes/reporterTRUST.txt', '_blank')">📖 ​Info</button></div></div>
@@ -284,6 +318,70 @@
     <div class="card dificil"><h3>Lab Difícil 3</h3><div class="actions"><a href="https://mega.nz/file/ejemplo12" target="_blank">​📂​Descargar</a><button>💡​Descripción</button><button>📖Info</button></div></div>
 
   </div>
+ 
+<script>
+  function updateCounts() {
+    const categories = ['muy-facil', 'facil', 'medio', 'dificil'];
+    let total = 0;
+
+    categories.forEach(cat => {
+      const count = document.querySelectorAll(`.card.${cat}`).length;
+      document.getElementById(`count-${cat}`).textContent = count;
+      total += count;
+    });
+
+    document.getElementById('count-todos').textContent = total;
+  }
+
+  // Ejecutar al cargar la página
+  window.onload = updateCounts;
+
+  // Funciones para mostrar el mensaje de categoría
+  function ocultarTodosLosMensajes() {
+    const mensajes = ['mensaje', 'mensaje2', 'mensaje3', 'mensaje4', 'mensaje5'];
+    mensajes.forEach(id => document.getElementById(id).style.display = 'none');
+  }
+
+  function mostrar_mensaje(id) {
+    ocultarTodosLosMensajes();
+    document.getElementById(id).style.display = 'block';
+  }
+  function mostrar_mensaje2(id) {
+    ocultarTodosLosMensajes();
+    document.getElementById(id).style.display = 'block';
+  }
+  function mostrar_mensaje3(id) {
+    ocultarTodosLosMensajes();
+    document.getElementById(id).style.display = 'block';
+  }
+  function mostrar_mensaje4(id) {
+    ocultarTodosLosMensajes();
+    document.getElementById(id).style.display = 'block';
+  }
+  function mostrar_mensaje5(id) {
+    ocultarTodosLosMensajes();
+    document.getElementById(id).style.display = 'block';
+  }
+</script>
+<script>
+  document.getElementById('searchInput').addEventListener('input', function () {
+    const query = this.value.toLowerCase();
+    const cards = document.querySelectorAll('.card');
+
+    cards.forEach(card => {
+      const title = card.querySelector('h3').textContent.toLowerCase();
+      if (title.includes(query)) {
+        card.style.display = 'block';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+  });
+</script>
+
+
+
+
 
   <script>
     function filterCards(category) {
