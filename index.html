@@ -4,282 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DockerLabs</title>
-  <style>
-    body {
-      background-color: #0d1117;
-      color: white;
-      font-family: Arial, sans-serif;
-      margin: 0;
-       padding-bottom: 60px;
-     
-    }
-    .cabecera {
-      background-color: #2a0909e9;
-     
-      width: 100%;
-      padding: 1px 0;
-       box-shadow: 0 2px 5px rgb(253, 247, 247);
-    }
-   
-    .titulo {
-     padding: 0 300px;
-     
+  <link rel="stylesheet" href="style.css">
 
-      font-family: Georgia, 'Times New Roman', Times, serif;
-      font-size: 30px;
-      
-    }
-    .mensaje {
-      display: none; 
-    }
-    .Categoria {
-      display: none;
-      font-size: 36px;
-      color: #043c4e;
-    }
-    .Categoria2 {
-      display: none;
-      font-size: 36px;
-      color: #03607e;
-    }
-    .Categoria3 {
-      display: none;
-      font-size: 36px;
-      color: #00bfff;
-    }
-    .Categoria4 {
-      display: none;
-      font-size: 36px;
-      color: #00bfff;
-    }
-    .Categoria5 {
-      display: none;
-      font-size: 36px;
-      color: #00bfff;
-    }
-
-    .filter-buttons {
-      background-color: #862828; 
-        padding: 30px 20px;
-       
-      margin-bottom: 30px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-      box-shadow: 0 3px 5px rgb(253, 247, 247);
-
-      
-    }
-
-    .filter-buttons button {
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      width: 130px;
-      height: 35px;
-      font-size: 18px;
-      box-shadow: 0 3px 5px rgb(253, 247, 247);
-    }
-
-    .btn-muy-facil { background-color: #00bfff; }
-    .btn-facil { background-color: #2ecc71; }
-    .btn-medio { background-color: #f1c40f; color: #000; }
-    .btn-dificil { background-color: #c72412; }
-    .btn-todos { background-color: #6e8caa; }
-
-    .btn-muy-facil:hover {
-      background-color: #026789;
-    }
-
-    .btn-muy-facil:active {
-      transform: scale(0.96);
-      box-shadow: 0 0 0 3px rgba(190, 204, 218, 0.4);
-    }
-    .btn-facil:hover {
-      background-color: #02892f;
-    }
-    .btn-facil:active {
-      transform: scale(0.96);
-      box-shadow: 0 0 0 3px rgba(190, 204, 218, 0.4);
-    }
-
-    .btn-medio:hover {
-      background-color: #e79908;
-    }
-    .btn-medio:active {
-      transform: scale(0.96);
-      box-shadow: 0 0 0 3px rgba(190, 204, 218, 0.4);
-    }
-    .btn-dificil:hover {
-      background-color: #790202;
-    }
-    .btn-dificil:active {
-      transform: scale(0.96);
-      box-shadow: 0 0 0 3px rgba(190, 204, 218, 0.4);
-    }
-     .btn-todos:hover {
-      background-color: #032b98;
-    }
-    .btn-todos:active {
-      transform: scale(0.96);
-      box-shadow: 0 0 0 3px rgba(190, 204, 218, 0.4);
-    }
-
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 15px;
-    }
-
-    .card {
-      background-color: #161b22;
-      border-left: 8px solid;
-      padding: 15px;
-      border-radius: 8px;
-      width: calc(20% - 15px);
-      box-sizing: border-box;
-      display: none;
-      box-shadow: 0 0 0 3px rgba(190, 204, 218, 0.4);
-    
-    }
-
-    .muy-facil { 
-      border-color: #00bfff; 
-      width: 25%;
-      box-sizing: border-box;
-      
-    }
-    .facil {
-       border-color: #2ecc71;
-      width: 25%;
-      box-sizing: border-box;
-      }
-    .medio { 
-      border-color: #f1c40f;
-      width: 25%;
-      box-sizing: border-box;
-     }
-    .dificil {
-       border-color: #e74c3c;
-        width: 25%;
-      box-sizing: border-box;
-      }
-
-    .card h3 {
-      margin-top: 0;
-      font-size: 14px;
-    }
-
-    .card .actions {
-      margin-top: 10px;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      justify-content: center;
-
-      
-    }
-
-    .card .actions a, .card .actions button {
-      flex: 1 1 30%;
-      min-width: 80px;
-      background-color: #21262d;
-      border: none;
-      padding: 6px 10px;
-      border-radius: 4px;
-      cursor: pointer;
-      color: white;
-      text-align: center;
-      text-decoration: none;
-    }
-
-    .card .actions a:hover, .card .actions button:hover {
-      background-color: #30363d;
-    }
-   
-
-    .footer {
-     
-      border-top: 1px solid #eeeded;
-     display: flex;
-      
-      justify-content: space-between;
-      background-color: #862828;
-       position: fixed;
-       bottom: 0;
-       left: 0;
-       width: 100%;
-       padding: 0px 0;
-       box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
-     
-
-    }
-    .footer h3 {
-      color: #A70A15;
-      font-size: 15px;
-      font-weight: 400;
-     
-
-    }
-    .links ul {
-      display: flex;
-    }
-
-    .links ul li {
-      margin-right: 35px;
-    }
-
-     .links ul li a {
-      color: #d3cdcd;
-    }
-    h1 {
-      display: none;
-    }
-    .cuadro1 {
-        
-        width: 400px;
-      height: auto;
-     position: absolute;
-     top: 400px;
-     left: 600px;
-
-    }
-
-    #searchInput {
-      background-color: #00000056;
-      color: #d3cdcd;
-      position: relative;
-      left: 80px;
-    
-      
-  width: 80%;
-  max-width: 300px;        /* Ancho máximo */
-  height: 35px;            /* Altura */
-  
-  font-size: 18px;
-  border: 1px solid #ccc;
-  border-radius: 12px;
-  outline: none;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-  transition: all 0.3s ease;
-  font-family: 'Segoe UI', sans-serif;
-  padding-left: 20px;
-  text-align: center;
-  display: flex;
-  justify-content: center;
-}
-
-#searchInput:focus {
-  border-color: #4a90e2;
-  box-shadow: 0 0 0 3px rgba(74, 145, 226, 0.523);
-  
-}
-
-.tipo {
-  font-size: 18px;
-}
-  </style>
   
 </head>
 <body>
@@ -333,7 +59,7 @@
     <div class="card medio"><h3>Apolos</h3><div class="actions"><a href="https://mega.nz/file/wS4QDRzJ#9xSOwupo_xV1K4nWN_VuTbZwvKew8WWz9XTjL52GpnQ" target="_blank">​📂​Descargar</a><button onclick="mostrarCuadro10('imagen10')">💡​Descripción</button><button onclick="window.open('reportes/reporterAPOLOS.txt', '_blank')">📖​Info</button></div></div>
     <div class="card medio"><h3>Report</h3><div class="actions"><a href="https://mega.nz/file/kHAlDbba#2ys8NjpumHeIpQPslhol0RlaL5Sf8K0H4PL1lEVxZhc" target="_blank">​📂​Descargar</a><button onclick="mostrarCuadro11('imagen11')">💡​Descripción</button><button onclick="window.open('reportes/reporterREPORTS.txt', '_blank')">📖 ​Info</button></div></div>
     <div class="card medio"><h3>Inclusion</h3><div class="actions"><a href="https://mega.nz/file/pLwChL7A#0E54ky6tJJgEr9aumoPz9t82xgM7OaalIWPGFFe-4II" target="_blank">​📂​Descargar</a><button onclick="mostrarCuadro12('imagen12')">💡​Descripción</button><button onclick="window.open('reportes/reporterINCLUSION.txt', '_blank')">📖​I     nfo</button></div></div>
-    
+    <div class="card medio"><h3>ficcion</h3><div class="actions"><a href="https://mega.nz/file/Qbh0TLZB#mgoPYy3Xnw7E8YIXLBGb_iOLebvxD5nNuoUzzJvcmuo" target="_blank">​📂​Descargar</a><button onclick="mostrarCuadro15('imagen15')">💡​Descripción</button><button onclick="window.open('reportes/reporterFICCION.txt', '_blank')">📖     ​Info</button></div></div>
     
 
     <!-- Difícil -->
@@ -540,6 +266,9 @@
     function mostrarCuadro14(){
         document.getElementById("imagen14").style.display = "block";
     }
+    function mostrarCuadro15(){
+        document.getElementById("imagen15").style.display = "block";
+    }
   </script>
   <script>
     function cerrarImagen() {
@@ -557,15 +286,14 @@
         document.getElementById("imagen12").style.display = "none";
         document.getElementById("imagen13").style.display = "none";
         document.getElementById("imagen14").style.display = "none";
+        document.getElementById("imagen15").style.display = "none";
 
     }
   </script>
 
-  
-
-
       <footer class="footer container">
-        <h3>Logo</h3>
+        <img class="img-cop" src="imagenes/copyright.png" alt="">
+        <h4 class="logo">Desarrollada: Alfonso Company Rodiguez</h4>
         <div class="links">
             <ul>
                 <li><a href="#">Inicio</a></li>
@@ -589,6 +317,7 @@
             <img id="imagen12" src="imagenes/CuadroInclusion.png" class="cuadro1" alt="" onclick="cerrarImagen()">
             <img id="imagen13" src="imagenes/CuadroCanario.png" class="cuadro1" alt="" onclick="cerrarImagen()">
             <img id="imagen14" src="imagenes/CuadroVulnerame.png" class="cuadro1" alt="" onclick="cerrarImagen()">
+            <img id="imagen15" src="imagenes/CuadroFiccion.png" class="cuadro1" alt="" onclick="cerrarImagen()">
       </div>
       
       <script>
@@ -608,6 +337,7 @@
         document.getElementById("imagen12").style.display = "none"
         document.getElementById("imagen13").style.display = "none"
         document.getElementById("imagen14").style.display = "none"
+        document.getElementById("imagen15").style.display = "none"
 
 
         document.getElementById("imagen0").style.display = "none"
