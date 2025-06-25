@@ -24,6 +24,17 @@
     <button class="btn-todos" onclick="filterCards('todos'), mostrar_mensaje5('mensaje5')">Todos (<span id="count-todos">0</span>)</button>
     <div class="search-container">
     <input type="text" id="searchInput" placeholder="🔎  Buscar Maquina..."></div>
+
+    <ul>
+      <li>
+        <a class="toggle">Escripts Auto Inicio</a>
+        <ul class="dropdown">
+        <li><a class="t1" href="https://mega.nz/file/BWRClBZD#5Gqd_-US_J26xLNImdIpai6e7gAGIdUSSev-1dt5rQw">Auto-Osito</a></li>
+        <li><a href="https://mega.nz/file/BWRClBZD#5Gqd_-US_J26xLNImdIpai6e7gAGIdUSSev-1dt5rQw">Archivo 2</a></li>
+        <li><a href="https://mega.nz/file/archivo3">Archivo 3</a></li>
+        </ul>
+      </li>
+    </ul>
   
   </div>
   
@@ -60,7 +71,7 @@
     <div class="card medio"><h3>Report</h3><div class="actions"><a href="https://mega.nz/file/kHAlDbba#2ys8NjpumHeIpQPslhol0RlaL5Sf8K0H4PL1lEVxZhc" target="_blank">​📂​Descargar</a><button onclick="mostrarCuadro11('imagen11')">💡​Descripción</button><button onclick="window.open('reportes/reporterREPORTS.txt', '_blank')">📖 ​Info</button></div></div>
     <div class="card medio"><h3>Inclusion</h3><div class="actions"><a href="https://mega.nz/file/pLwChL7A#0E54ky6tJJgEr9aumoPz9t82xgM7OaalIWPGFFe-4II" target="_blank">​📂​Descargar</a><button onclick="mostrarCuadro12('imagen12')">💡​Descripción</button><button onclick="window.open('reportes/reporterINCLUSION.txt', '_blank')">📖​I     nfo</button></div></div>
     <div class="card medio"><h3>ficcion</h3><div class="actions"><a href="https://mega.nz/file/Qbh0TLZB#mgoPYy3Xnw7E8YIXLBGb_iOLebvxD5nNuoUzzJvcmuo" target="_blank">​📂​Descargar</a><button onclick="mostrarCuadro15('imagen15')">💡​Descripción</button><button onclick="window.open('reportes/reporterFICCION.txt', '_blank')">📖     ​Info</button></div></div>
-    
+     <div class="card medio"><h3>invictus</h3><div class="actions"><a href="https://mega.nz/file/UeQx2KhZ#vjgYEHQJscxGoKG3s3k2xlMxuO2x39LiocZ8ysbkxO8" target="_blank">​📂​Descargar</a><button onclick="mostrarCuadro16('imagen16')">💡​Descripción</button><button onclick="window.open('reportes/reporterINVICTUS.txt', '_blank')">📖     ​Info</button></div></div>
 
     <!-- Difícil -->
     <div class="card dificil"><h3>Canario</h3><div class="actions"><a href="https://mega.nz/file/AboQALoI#g9YH_YhImwJ337Em6_M2wsdpvnTSemEYvg32J-R2wzE" target="_blank">​📂​Descargar</a><button onclick="mostrarCuadro13('imagen13')">💡​Descripción</button><button onclick="window.open('reportes/reporterCANARIO.txt', '_blank')">📖 ​Info</button></div></div>
@@ -71,6 +82,15 @@
     <div class="card dificil"><h3>Lab Difícil 3</h3><div class="actions"><a href="https://mega.nz/file/ejemplo12" target="_blank">​📂​Descargar</a><button>💡​Descripción</button><button>📖Info</button></div></div>
 
   </div>
+
+<script>
+  const toggle = document.querySelector('.toggle');
+  const dropdown = document.querySelector('.dropdown');
+
+  toggle.addEventListener('click', () => {
+    dropdown.classList.toggle('show');
+  });
+</script>
  
 <script>
   function updateCounts() {
@@ -269,6 +289,9 @@
     function mostrarCuadro15(){
         document.getElementById("imagen15").style.display = "block";
     }
+    function mostrarCuadro16(){
+        document.getElementById("imagen16").style.display = "block";
+    }
   </script>
   <script>
     function cerrarImagen() {
@@ -287,6 +310,7 @@
         document.getElementById("imagen13").style.display = "none";
         document.getElementById("imagen14").style.display = "none";
         document.getElementById("imagen15").style.display = "none";
+        document.getElementById("imagen16").style.display = "none";
 
     }
   </script>
@@ -318,6 +342,7 @@
             <img id="imagen13" src="imagenes/CuadroCanario.png" class="cuadro1" alt="" onclick="cerrarImagen()">
             <img id="imagen14" src="imagenes/CuadroVulnerame.png" class="cuadro1" alt="" onclick="cerrarImagen()">
             <img id="imagen15" src="imagenes/CuadroFiccion.png" class="cuadro1" alt="" onclick="cerrarImagen()">
+            <img id="imagen16" src="imagenes/CuadroInvictus.png" class="cuadro1" alt="" onclick="cerrarImagen()">
       </div>
       
       <script>
@@ -338,15 +363,12 @@
         document.getElementById("imagen13").style.display = "none"
         document.getElementById("imagen14").style.display = "none"
         document.getElementById("imagen15").style.display = "none"
+        document.getElementById("imagen16").style.display = "none"
 
 
         document.getElementById("imagen0").style.display = "none"
 
       </script>
-
-      
-  </body>
-</html>
 
       
   </body>
