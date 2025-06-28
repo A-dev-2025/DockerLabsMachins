@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DockerLabs</title>
   <link rel="stylesheet" href="style.css">
-
+   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   
 </head>
 <body>
@@ -15,6 +15,11 @@
         
     </div>
   
+    <div class="cabecera">
+      
+      <div class="g-recaptcha" data-sitekey="6LdHsnArAAAAAEy-XtwEraCtlEV5Ddsfp2335Lg4" data-callback="onCaptchaSuccess"></div>
+
+    </div>
    
   <div class="filter-buttons">
     <button class="btn-muy-facil" onclick="filterCards('muy-facil'), mostrar_mensaje('mensaje')">Muy Fácil (<span id="count-muy-facil">0</span>)</button>
@@ -27,10 +32,10 @@
 
     <ul>
       <li>
-        <a class="toggle">Escripts Auto Inicio</a>
+        <a class="toggle disabled">Escripts Auto Inicio</a>
         <ul class="dropdown">
         <li><a class="t1" href="https://mega.nz/file/BWRClBZD#5Gqd_-US_J26xLNImdIpai6e7gAGIdUSSev-1dt5rQw">Auto-Osito</a></li>
-        <li><a href="https://mega.nz/file/wf4zlQBJ#KJliXBN9gsIQ8EQDRH_GU2andOQ6AbQdz9Pio1C0JYA">Archivo 2</a></li>
+        <li><a href="https://mega.nz/file/wf4zlQBJ#KJliXBN9gsIQ8EQDRH_GU2andOQ6AbQdz9Pio1C0JYA">Inicio-Aleatorio</a></li>
         <li><a href="https://mega.nz/file/archivo3">Archivo 3</a></li>
         </ul>
       </li>
@@ -87,9 +92,66 @@
   const toggle = document.querySelector('.toggle');
   const dropdown = document.querySelector('.dropdown');
 
+  // Evento del toggle
   toggle.addEventListener('click', () => {
-    dropdown.classList.toggle('show');
+    if (!toggle.classList.contains('disabled')) {
+      dropdown.classList.toggle('show');
+    }
   });
+
+  // Función para deshabilitar toggle, botones y enlaces
+  function deshabilitarToggle() {
+    toggle.classList.add('disabled');
+    dropdown.classList.remove('show');
+
+    // Deshabilita todos los botones dentro de .card
+    document.querySelectorAll('.card button').forEach(btn => {
+      btn.disabled = true;
+    });
+
+    // Desactiva los enlaces de descarga en .card
+    document.querySelectorAll('.card a').forEach(link => {
+      if (link.hasAttribute('href')) {
+        link.setAttribute('data-href', link.getAttribute('href'));
+        link.removeAttribute('href');
+      }
+
+      if (link.hasAttribute('target')) {
+        link.setAttribute('data-target', link.getAttribute('target'));
+        link.removeAttribute('target');
+      }
+
+      link.classList.add('disabled-link');
+    });
+  }
+
+  // Función para habilitar toggle, botones y enlaces
+  function habilitarToggle() {
+    toggle.classList.remove('disabled');
+
+    // Habilita todos los botones dentro de .card
+    document.querySelectorAll('.card button').forEach(btn => {
+      btn.disabled = false;
+    });
+
+    // Restaura los enlaces de descarga en .card
+    document.querySelectorAll('.card a.disabled-link').forEach(link => {
+      const href = link.getAttribute('data-href');
+      const target = link.getAttribute('data-target');
+
+      if (href) {
+        link.setAttribute('href', href);
+        link.removeAttribute('data-href');
+      }
+
+      if (target) {
+        link.setAttribute('target', target);
+        link.removeAttribute('data-target');
+      }
+
+      link.classList.remove('disabled-link');
+    });
+  }
 </script>
  
 <script>
@@ -369,6 +431,44 @@
         document.getElementById("imagen0").style.display = "none"
 
       </script>
+      
+      <script>
+  // Al cargar la página, deshabilitar todos los botones
+  window.addEventListener('DOMContentLoaded', () => {
+    toggleButtons(false);
+  });
+
+  // Función para habilitar o deshabilitar todos los botones
+  function toggleButtons(enable) {
+    const buttons = document.querySelectorAll('button, .search-container input');
+    buttons.forEach(btn => {
+      btn.disabled = !enable;
+      if (!enable) {
+        btn.style.opacity = '0.5';
+        btn.style.cursor = 'not-allowed';
+       
+        deshabilitarToggle();
+      } else {
+        btn.style.opacity = '';
+        btn.style.cursor = '';
+         habilitarToggle();
+      }
+    });
+  }
+
+  // Función llamada al completar correctamente el reCAPTCHA
+  function onCaptchaSuccess() {
+    toggleButtons(true); // Habilita botones
+    // Oculta el captcha
+    const captchaDiv = document.querySelector('.g-recaptcha');
+    if (captchaDiv) {
+      captchaDiv.parentElement.style.display = 'none';
+    }
+  }
+</script>
+      
+  </body>
+</html>
 
       
   </body>
