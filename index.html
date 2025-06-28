@@ -4,10 +4,31 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DockerLabs</title>
+
+  <script>
+  // Comprobamos si el usuario está autenticado
+  if (localStorage.getItem("isLoggedIn") !== "true") {
+    // Redirigimos al login si no ha iniciado sesión
+    window.location.href = "login.html";
+  }
+  
+</script>
+
+
+
+<script>
+  function cerrarSesion() {
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("usuario");
+    window.location.href = "login.html";
+  }
+</script>
   <link rel="stylesheet" href="style.css">
+ 
    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   
 </head>
+
 <body>
     <div class="cabecera">
       
@@ -29,7 +50,7 @@
     <button class="btn-todos" onclick="filterCards('todos'), mostrar_mensaje5('mensaje5')">Todos (<span id="count-todos">0</span>)</button>
     <div class="search-container">
     <input type="text" id="searchInput" placeholder="🔎  Buscar Maquina..."></div>
-
+    
     <ul>
       <li>
         <a class="toggle disabled">Escripts Auto Inicio</a>
@@ -40,6 +61,8 @@
         </ul>
       </li>
     </ul>
+
+      <button class="btn-todos" onclick="cerrarSesion()">Cerrar sesión</button>
   
   </div>
   
@@ -58,10 +81,10 @@
     <div class="card muy-facil"><h3>Lab Muy Fácil 2</h3><div class="actions"><a href="https://mega.nz/file/ejemplo2" target="_blank">​📂Descargar</a><button>💡​​Descripción</button><button>📖     ​Info</button></div></div>
     <div class="card muy-facil"><h3>Lab Muy Fácil 3</h3><div class="actions"><a href="https://mega.nz/file/ejemplo3" target="_blank">​📂Descargar</a><button>​💡​​Descripción</button><button>📖     ​Info</button></div></div>
 
-    <!-- Fácil -->
+    <!-- Fácil pagina Dobrox enlace  https://www.dropbox.com/home-->
      
      
-     <div class="card facil"><h3>OpenStudio</h3><div class="actions"><a href="https://mega.nz/file/tGQy1QRL#h2NZdngmemM12iAeE3wqi9jv1xO9Q1TWd6XUxZwOauE" target="_blank">​📂​Descargar</a><button onclick="mostrarCuadro0('imagen0')" >💡​Descripción</button><button onclick="window.open('reportes/reportOpenStudio.txt', '_blank')" >📖 ​Info</button></div></div>
+     <div class="card facil"><h3>OpenStudio</h3><div class="actions"><a href="https://mega.nz/file/tGQy1QRL#h2NZdngmemM12iAeE3wqi9jv1xO9Q1TWd6XUxZwOauE&st" target="_blank">​📂​Descargar</a><button onclick="mostrarCuadro0('imagen0')" >💡​Descripción</button><button onclick="window.open('reportes/reportOpenStudio.txt', '_blank')" >📖 ​Info</button></div></div>
     <div class="card facil"><h3>Web2</h3><div class="actions"><a href="https://mega.nz/file/MHBSULLS#FdtVzCFmLuvrt3eT467dnD0TTr_KIxeaZjq2NNsxCRY" target="_blank">​📂​Descargar</a><button onclick="mostrarCuadro1('imagen1')" >💡​Descripción</button><button onclick="window.open('reportes/reporterWEB2.txt', '_blank')" >📖  ​Info</button></div></div>
     <div class="card facil"><h3>MyLogin</h3><div class="actions"><a href="https://mega.nz/file/wGpHSQRS#YKY4qc-ny6um0KpIC1uo7e-ClnKIf7nd68PsFpwNGTc" target="_blank">​📂​Descargar</a><button onclick="mostrarCuadro2('imagen2')" >💡​Descripción</button><button onclick="window.open('reportes/reporterMyLogin.txt', '_blank')" >📖 ​Info</button></div></div>
     <div class="card facil"><h3>Trust</h3><div class="actions"><a href="https://mega.nz/file/4TAEWL5L#P0NymsYGoGsVIvjPwEfDJC9UVY-6CkwFgka85-K5W7w" target="_blank">​📂​Descargar</a><button onclick="mostrarCuadro4('imagen4')">💡​Descripción</button><button onclick="window.open('reportes/reporterTRUST.txt', '_blank')">📖 ​Info</button></div></div>
@@ -75,7 +98,7 @@
     <div class="card medio"><h3>Apolos</h3><div class="actions"><a href="https://mega.nz/file/wS4QDRzJ#9xSOwupo_xV1K4nWN_VuTbZwvKew8WWz9XTjL52GpnQ" target="_blank">​📂​Descargar</a><button onclick="mostrarCuadro10('imagen10')">💡​Descripción</button><button onclick="window.open('reportes/reporterAPOLOS.txt', '_blank')">📖​Info</button></div></div>
     <div class="card medio"><h3>Report</h3><div class="actions"><a href="https://mega.nz/file/kHAlDbba#2ys8NjpumHeIpQPslhol0RlaL5Sf8K0H4PL1lEVxZhc" target="_blank">​📂​Descargar</a><button onclick="mostrarCuadro11('imagen11')">💡​Descripción</button><button onclick="window.open('reportes/reporterREPORTS.txt', '_blank')">📖 ​Info</button></div></div>
     <div class="card medio"><h3>Inclusion</h3><div class="actions"><a href="https://mega.nz/file/pLwChL7A#0E54ky6tJJgEr9aumoPz9t82xgM7OaalIWPGFFe-4II" target="_blank">​📂​Descargar</a><button onclick="mostrarCuadro12('imagen12')">💡​Descripción</button><button onclick="window.open('reportes/reporterINCLUSION.txt', '_blank')">📖​I     nfo</button></div></div>
-    <div class="card medio"><h3>ficcion</h3><div class="actions"><a href="https://mega.nz/file/Qbh0TLZB#mgoPYy3Xnw7E8YIXLBGb_iOLebvxD5nNuoUzzJvcmuo" target="_blank">​📂​Descargar</a><button onclick="mostrarCuadro15('imagen15')">💡​Descripción</button><button onclick="window.open('reportes/reporterFICCION.txt', '_blank')">📖     ​Info</button></div></div>
+    <div class="card medio"><h3>ficcion</h3><div class="actions"><a href="https://www.dropbox.com/scl/fi/9lok5hh1dkkkcls325nrl/ficcion.zip?rlkey=9gk6i50pyyb7cdhtbeurp3qza&st=ew8adsul&dl=1" target="_blank">​📂​Descargar</a><button onclick="mostrarCuadro15('imagen15')">💡​Descripción</button><button onclick="window.open('reportes/reporterFICCION.txt', '_blank')">📖     ​Info</button></div></div>
      <div class="card medio"><h3>invictus</h3><div class="actions"><a href="https://mega.nz/file/UeQx2KhZ#vjgYEHQJscxGoKG3s3k2xlMxuO2x39LiocZ8ysbkxO8" target="_blank">​📂​Descargar</a><button onclick="mostrarCuadro16('imagen16')">💡​Descripción</button><button onclick="window.open('reportes/reporterINVICTUS.txt', '_blank')">📖     ​Info</button></div></div>
 
     <!-- Difícil -->
