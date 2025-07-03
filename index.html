@@ -4,68 +4,59 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>DockerLabs</title>
-
-  <script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="login.html">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<script>
   // Comprobamos si el usuario está autenticado
   if (localStorage.getItem("isLoggedIn") !== "true") {
     // Redirigimos al login si no ha iniciado sesión
     window.location.href = "login.html";
   }
   
-</script>
-
-
-
-<script>
-  function cerrarSesion() {
-    localStorage.removeItem("isLoggedIn");
-    localStorage.removeItem("usuario");
-    window.location.href = "login.html";
-  }
-</script>
-  <link rel="stylesheet" href="style.css">
- 
-   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
   
-</head>
+</script>
 
 <body>
     <div class="cabecera">
-      
-        <h2 class="titulo">Docker-Machins</h2>
-        
+       
+        <img class="img-Foto" src="imagenes/copyright.png" alt="" width="150" height="120">
+        <h2 class="titulo">Docker-Machins</h2> 
     </div>
-  
-    <div class="cabecera">
-      
-      <div class="g-recaptcha" data-sitekey="6LdHsnArAAAAAEy-XtwEraCtlEV5Ddsfp2335Lg4" data-callback="onCaptchaSuccess"></div>
-
-    </div>
-   
   <div class="filter-buttons">
+   
     <button class="btn-muy-facil" onclick="filterCards('muy-facil'), mostrar_mensaje('mensaje')">Muy Fácil (<span id="count-muy-facil">0</span>)</button>
     <button class="btn-facil" onclick="filterCards('facil'), mostrar_mensaje2('mensaje2')">Fácil (<span id="count-facil">0</span>)</button>
     <button class="btn-medio" onclick="filterCards('medio'), mostrar_mensaje3('mensaje3')">Medio (<span id="count-medio">0</span>)</button>
     <button class="btn-dificil" onclick="filterCards('dificil'), mostrar_mensaje4('mensaje4')">Difícil (<span id="count-dificil">0</span>)</button>
     <button class="btn-todos" onclick="filterCards('todos'), mostrar_mensaje5('mensaje5')">Todos (<span id="count-todos">0</span>)</button>
-    <div class="search-container">
-    <input type="text" id="searchInput" placeholder="🔎  Buscar Maquina..."></div>
+   
     
-    <ul>
-      <li>
-        <a class="toggle disabled">Escripts Auto Inicio</a>
-        <ul class="dropdown">
-        <li><a class="t1" href="https://mega.nz/file/BWRClBZD#5Gqd_-US_J26xLNImdIpai6e7gAGIdUSSev-1dt5rQw">Auto-Osito</a></li>
-        <li><a href="https://mega.nz/file/wf4zlQBJ#KJliXBN9gsIQ8EQDRH_GU2andOQ6AbQdz9Pio1C0JYA">Inicio-Aleatorio</a></li>
-        <li><a href="https://mega.nz/file/archivo3">Archivo 3</a></li>
-        </ul>
-      </li>
-    </ul>
+    <div class="search-container">
+      <input type="text" id="searchInput" placeholder="🔎  Buscar Maquina..."></div>
 
-      <button class="btn-todos" onclick="cerrarSesion()">Cerrar sesión</button>
-  
+      
+
+    
+       
+    
+    <ul class="menu">
+      <li>
+        <ul class="dropdown">
+          <li><a class="t1" href="https://mega.nz/file/BWRClBZD#5Gqd_-US_J26xLNImdIpai6e7gAGIdUSSev-1dt5rQw">Auto-Osito</a></li>
+          <li><a href="https://mega.nz/file/BWRClBZD#5Gqd_-US_J26xLNImdIpai6e7gAGIdUSSev-1dt5rQw">Archivo 2</a></li>
+          <li><a href="https://mega.nz/file/archivo3">Archivo 3</a></li>
+        </ul>
+     </li>
+    </ul>
+      <a class="toggle"><i class="fa fa-download"></i>​​Descargar Auto Inicio</a>
+    
+    <button class="btn-exit" onclick="cerrarSesion()">EXIT</button>  
+    
+      
   </div>
-  
   
   <h1 class="tipo" id="mensaje">Categoria Muy-Facil</h1>
   <h1 class="tipo"  id="mensaje2">Categoria Facil</h1>
@@ -100,7 +91,7 @@
     <div class="card medio"><h3>Inclusion</h3><div class="actions"><a href="https://mega.nz/file/pLwChL7A#0E54ky6tJJgEr9aumoPz9t82xgM7OaalIWPGFFe-4II" target="_blank">​📂​Descargar</a><button onclick="mostrarCuadro12('imagen12')">💡​Descripción</button><button onclick="window.open('reportes/reporterINCLUSION.txt', '_blank')">📖​I     nfo</button></div></div>
     <div class="card medio"><h3>ficcion</h3><div class="actions"><a href="https://www.dropbox.com/scl/fi/9lok5hh1dkkkcls325nrl/ficcion.zip?rlkey=9gk6i50pyyb7cdhtbeurp3qza&st=ew8adsul&dl=1" target="_blank">​📂​Descargar</a><button onclick="mostrarCuadro15('imagen15')">💡​Descripción</button><button onclick="window.open('reportes/reporterFICCION.txt', '_blank')">📖     ​Info</button></div></div>
      <div class="card medio"><h3>invictus</h3><div class="actions"><a href="https://mega.nz/file/UeQx2KhZ#vjgYEHQJscxGoKG3s3k2xlMxuO2x39LiocZ8ysbkxO8" target="_blank">​📂​Descargar</a><button onclick="mostrarCuadro16('imagen16')">💡​Descripción</button><button onclick="window.open('reportes/reporterINVICTUS.txt', '_blank')">📖     ​Info</button></div></div>
-
+    <div class="card medio"><h3>datos</h3><div class="actions"><a href="https://mega.nz/file/oORh1KyL#xMppgo-uiuebKyYCItyyWQpIKB9yfIVXKz6SCedVrtY" target="_blank">​📂​Descargar</a><button onclick="mostrarCuadro17('imagen17')">💡​Descripción</button><button onclick="window.open('reportes/reporterINVICTUS.txt', '_blank')">📖     ​Info</button></div></div>
     <!-- Difícil -->
     <div class="card dificil"><h3>Canario</h3><div class="actions"><a href="https://mega.nz/file/AboQALoI#g9YH_YhImwJ337Em6_M2wsdpvnTSemEYvg32J-R2wzE" target="_blank">​📂​Descargar</a><button onclick="mostrarCuadro13('imagen13')">💡​Descripción</button><button onclick="window.open('reportes/reporterCANARIO.txt', '_blank')">📖 ​Info</button></div></div>
     <div class="card dificil"><h3>Vulnerame</h3><div class="actions"><a href="https://mega.nz/file/ZXJCSIbZ#BO3zqbTMLi4lvSE5mCZwcqn8pZ6c5etEvxpgOkHpBsU" target="_blank">​📂​Descargar</a><button onclick="mostrarCuadro14('imagen14')">💡​Descripción</button><button onclick="window.open('reportes/reporterVULNERAME.txt', '_blank')">📖 ​Info</button></div></div>
@@ -115,68 +106,19 @@
   const toggle = document.querySelector('.toggle');
   const dropdown = document.querySelector('.dropdown');
 
-  // Evento del toggle
   toggle.addEventListener('click', () => {
-    if (!toggle.classList.contains('disabled')) {
-      dropdown.classList.toggle('show');
-    }
+    dropdown.classList.toggle('show');
   });
-
-  // Función para deshabilitar toggle, botones y enlaces
-  function deshabilitarToggle() {
-    toggle.classList.add('disabled');
-    dropdown.classList.remove('show');
-
-    // Deshabilita todos los botones dentro de .card
-    document.querySelectorAll('.card button').forEach(btn => {
-      btn.disabled = true;
-    });
-
-    // Desactiva los enlaces de descarga en .card
-    document.querySelectorAll('.card a').forEach(link => {
-      if (link.hasAttribute('href')) {
-        link.setAttribute('data-href', link.getAttribute('href'));
-        link.removeAttribute('href');
-      }
-
-      if (link.hasAttribute('target')) {
-        link.setAttribute('data-target', link.getAttribute('target'));
-        link.removeAttribute('target');
-      }
-
-      link.classList.add('disabled-link');
-    });
-  }
-
-  // Función para habilitar toggle, botones y enlaces
-  function habilitarToggle() {
-    toggle.classList.remove('disabled');
-
-    // Habilita todos los botones dentro de .card
-    document.querySelectorAll('.card button').forEach(btn => {
-      btn.disabled = false;
-    });
-
-    // Restaura los enlaces de descarga en .card
-    document.querySelectorAll('.card a.disabled-link').forEach(link => {
-      const href = link.getAttribute('data-href');
-      const target = link.getAttribute('data-target');
-
-      if (href) {
-        link.setAttribute('href', href);
-        link.removeAttribute('data-href');
-      }
-
-      if (target) {
-        link.setAttribute('target', target);
-        link.removeAttribute('data-target');
-      }
-
-      link.classList.remove('disabled-link');
-    });
-  }
 </script>
- 
+<script>
+  function cerrarSesion() {
+    localStorage.removeItem("isLoggedIn");
+    localStorage.removeItem("usuario");
+    window.location.href = "login.html";
+    
+  }
+</script> 
+
 <script>
   function updateCounts() {
     const categories = ['muy-facil', 'facil', 'medio', 'dificil'];
@@ -236,11 +178,6 @@
     });
   });
 </script>
-
-
-
-
-
   <script>
     function filterCards(category) {
     
@@ -377,6 +314,9 @@
     function mostrarCuadro16(){
         document.getElementById("imagen16").style.display = "block";
     }
+    function mostrarCuadro17(){
+        document.getElementById("imagen17").style.display = "block";
+    }
   </script>
   <script>
     function cerrarImagen() {
@@ -396,21 +336,50 @@
         document.getElementById("imagen14").style.display = "none";
         document.getElementById("imagen15").style.display = "none";
         document.getElementById("imagen16").style.display = "none";
+         document.getElementById("imagen17").style.display = "none";
 
     }
   </script>
 
-      <footer class="footer container">
-        <img class="img-cop" src="imagenes/copyright.png" alt="">
-        <h4 class="logo">Desarrollada: Alfonso Company Rodiguez</h4>
-        <div class="links">
-            <ul>
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Informacions</a></li>
-                <li><a href="#">Contacto</a></li>
-            </ul>
-        </div>
-      </footer>
+
+
+<footer class="footer container">
+  <div class="bottom">
+    <div class="social">
+      <ul>
+        <li>
+          <a class="red" href="#">¿Conoces nuestra Comunidad UNETE.?</a>
+        </li>
+        <li>
+          <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+        </li>
+        <li>
+          <a href="#" onclick="contactarViaTwitter(); return false;">
+            <i class="fa fa-twitter" aria-hidden="true"></i>
+          </a>  
+        </li>
+        <a href="https://t.me/elpinguinohack" class="footer-icon" target="_blank">
+                <i class="bi bi-telegram"></i>
+            </a>
+
+        <li>
+          <a href="unirse4.html"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<script>
+  function contactarViaTwitter() {
+    const nombre = prompt("nombre:");
+    const email = prompt("correo:");
+    const mensaje = `Hola @Alfonso11498702, soy ${nombre}, mi correo es ${email}, quiero contactarte.`;
+
+    const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(mensaje)}`;
+    window.open(twitterUrl, '_blank');
+  }
+</script>
       <div class="Cuadro1">
             <img id="imagen0" src="imagenes/CuadroOpenStrudio.png" class="cuadro1" alt="" onclick="cerrarImagen()">
             <img id="imagen1" src="imagenes/Cuadro Descripcion.png" class="cuadro1" alt="" onclick="cerrarImagen()">
@@ -428,7 +397,8 @@
             <img id="imagen14" src="imagenes/CuadroVulnerame.png" class="cuadro1" alt="" onclick="cerrarImagen()">
             <img id="imagen15" src="imagenes/CuadroFiccion.png" class="cuadro1" alt="" onclick="cerrarImagen()">
             <img id="imagen16" src="imagenes/CuadroInvictus.png" class="cuadro1" alt="" onclick="cerrarImagen()">
-      </div>
+            <img id="imagen17" src="imagenes/CuadroInvictus.png" class="cuadro1" alt="" onclick="cerrarImagen()">
+          </div>
       
       <script>
   
@@ -449,50 +419,14 @@
         document.getElementById("imagen14").style.display = "none"
         document.getElementById("imagen15").style.display = "none"
         document.getElementById("imagen16").style.display = "none"
+        document.getElementById("imagen17").style.display = "none"
 
 
         document.getElementById("imagen0").style.display = "none"
 
       </script>
       
-      <script>
-  // Al cargar la página, deshabilitar todos los botones
-  window.addEventListener('DOMContentLoaded', () => {
-    toggleButtons(false);
-  });
-
-  // Función para habilitar o deshabilitar todos los botones
-  function toggleButtons(enable) {
-    const buttons = document.querySelectorAll('button, .search-container input');
-    buttons.forEach(btn => {
-      btn.disabled = !enable;
-      if (!enable) {
-        btn.style.opacity = '0.5';
-        btn.style.cursor = 'not-allowed';
-       
-        deshabilitarToggle();
-      } else {
-        btn.style.opacity = '';
-        btn.style.cursor = '';
-         habilitarToggle();
-      }
-    });
-  }
-
-  // Función llamada al completar correctamente el reCAPTCHA
-  function onCaptchaSuccess() {
-    toggleButtons(true); // Habilita botones
-    // Oculta el captcha
-    const captchaDiv = document.querySelector('.g-recaptcha');
-    if (captchaDiv) {
-      captchaDiv.parentElement.style.display = 'none';
-    }
-  }
-</script>
-      
-  </body>
-</html>
-
+   
       
   </body>
 </html>
