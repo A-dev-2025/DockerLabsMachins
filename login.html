@@ -3,6 +3,9 @@
 <head>
   <meta charset="UTF-8">
   <title>Login | Docker-Machine</title>
+  <link rel="stylesheet" href="index.html">
+
+ 
   <style>
     * {
       box-sizing: border-box;
@@ -140,13 +143,15 @@
   </style>
 </head>
 <body>
-
+ 
   <!-- CABECERA -->
   <header>
     <img src="https://img.icons8.com/ios-filled/50/ffffff/docker.png" alt="Docker Logo">
     Docker-Machine
   </header>
 
+
+ 
   <!-- LOGIN -->
   <div class="login-container">
     <h2>Iniciar sesión</h2>
@@ -155,11 +160,20 @@
     <button onclick="validarLogin()">Entrar</button>
     <div class="error" id="mensajeError"></div>
   </div>
+ <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+  <div class="cabecera">
+      
+      <div class="g-recaptcha" data-sitekey="6LdHsnArAAAAAEy-XtwEraCtlEV5Ddsfp2335Lg4" data-callback="onCaptchaSuccess"></div>
 
+    </div>
+   
   <!-- PIE DE PÁGINA -->
   <footer>
     &copy; 2025 Docker-Machine. Todos los derechos reservados.
   </footer>
+
+
+
 
   <!-- SCRIPT -->
   <script>
@@ -196,6 +210,41 @@
       setTimeout(() => {
         mensaje.textContent = "Introduce tus datos.";
       }, 3000);
+    }
+  }
+</script>
+
+   <script>
+  // Al cargar la página, deshabilitar todos los botones
+  window.addEventListener('DOMContentLoaded', () => {
+    toggleButtons(false);
+  });
+
+  // Función para habilitar o deshabilitar todos los botones
+  function toggleButtons(enable) {
+    const buttons = document.querySelectorAll('button, .search-container input');
+    buttons.forEach(btn => {
+      btn.disabled = !enable;
+      if (!enable) {
+        btn.style.opacity = '0.5';
+        btn.style.cursor = 'not-allowed';
+       
+       
+      } else {
+        btn.style.opacity = '';
+        btn.style.cursor = '';
+         habilitarToggle();
+      }
+    });
+  }
+
+  // Función llamada al completar correctamente el reCAPTCHA
+  function onCaptchaSuccess() {
+    toggleButtons(true); // Habilita botones
+    // Oculta el captcha
+    const captchaDiv = document.querySelector('.g-recaptcha');
+    if (captchaDiv) {
+      captchaDiv.parentElement.style.display = 'none';
     }
   }
 </script>
