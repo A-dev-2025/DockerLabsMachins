@@ -8,19 +8,27 @@
      
     }
     .cabecera {
-      background-color: #2a0909e9;
+      background-color: #061d3be9;
      
       width: 100%;
       padding: 1px 0;
        box-shadow: 0 2px 5px rgb(253, 247, 247);
-    }
+       display: flex;
+       gap: 20px; /* espacio entre todos los <li> */
+       list-style: none;
+       padding: 0;
+       margin: 20;
+       align-items: center;
+        
+      }
    
     .titulo {
-     padding: 0 300px;
+    
      
 
       font-family: Georgia, 'Times New Roman', Times, serif;
-      font-size: 30px;
+      font-size: 42px;
+      color: #285ef1;
       
     }
     .mensaje {
@@ -48,19 +56,19 @@
     }
     .Categoria5 {
       display: none;
-      font-size: 36px;
+      font-size: 6px;
       color: #00bfff;
     }
 
     .filter-buttons {
-      background-color: #862828; 
-        padding: 30px 20px;
+      background-color: #071c3700; 
+        padding: 20px 20px;
        
       margin-bottom: 30px;
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
-      box-shadow: 0 3px 5px rgb(253, 247, 247);
+     
 
       
     }
@@ -70,8 +78,8 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
-      width: 130px;
-      height: 35px;
+      width: 120px;
+      height: 25px;
       font-size: 18px;
       box-shadow: 0 3px 5px rgb(253, 247, 247);
     }
@@ -123,7 +131,7 @@
     .container {
       display: flex;
       flex-wrap: wrap;
-      gap: 15px;
+      gap: 20px;
     }
 
     .card {
@@ -199,14 +207,14 @@
      display: flex;
       
       justify-content: space-between;
-      background-color: #862828;
-       position: fixed;
+      background-color: #071c37fc;
+      
        bottom: 0;
        left: 0;
        width: 100%;
        padding: 0px 0;
        box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
-     
+       position: fixed;
 
     }
     .footer h3 {
@@ -236,7 +244,7 @@
       height: auto;
      position: absolute;
      top: 400px;
-     left: 600px;
+     left: 300px;
 
     }
 
@@ -360,3 +368,171 @@
   .dropdown.show {
     display: block;
   }
+
+ 
+
+
+  .bottom {
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100vw - 3em;
+    margin: auto;
+    position: relative;
+   
+  }
+
+.red {
+  color: #ffffff;
+  text-decoration: none;
+}
+   .social ul a i { 
+
+   color: #ffffff;
+    transition: color 0.3s ease, transform 0.3s ease;
+    font-size: 2.5em;
+     margin-right: 0.1em;
+    
+  }
+.social ul li a:hover i {
+ 
+  transform: scale(1.2); /* efecto de agrandar ligeramente */
+
+}
+.fa-facebook:hover {
+  color: #3b5998;
+}
+
+.fa-twitter:hover {
+  color: #1da1f2;
+}
+
+.fa-instagram:hover {
+  color: #e4405f;
+}
+
+
+  .social ul {
+  display: flex;
+  gap: 20px; /* espacio entre todos los <li> */
+  list-style: none;
+  padding: 0;
+  margin: 20;
+  align-items: center;
+}
+
+.red {
+  text-decoration: none;
+  color: inherit; /* opcional: para heredar el color del contenedor */
+}
+
+.toggle i {
+  margin-right: 8px; /* espacio entre el ícono y el texto */
+  transition: color 0.3s ease, transform 0.3s ease;
+  color: #f8f6f6;
+  transform: scale(1.6);
+}
+
+.toggle:hover i {
+  color: #007bff; /* azul al pasar el cursor */
+  transform: scale(1.8);
+}
+
+a.toggle {
+  color: white;
+  text-decoration: none;
+}
+a.toggle:hover {
+  color: #007bff; /* un gris claro al pasar el mouse */
+}
+
+/* Contenedor padre del dropdown */
+.has-dropdown {
+  position: relative;
+}
+
+/* Enlace principal */
+.has-dropdown > a {
+  display: inline-block;
+  padding: 10px 20px;
+  color: white;
+  text-decoration: none;
+  background-color: #21262d;
+  border-radius: 8px;
+}
+
+/* Estilo general para la lista dropdown */
+.dropdown {
+  display: none; /* Oculto por defecto */
+  position: absolute;
+  top: 100%;
+ 
+  left: 150px; ;
+  background-color:  #21262d;       /* fondo oscuro */
+  border-radius: 8px;           /* bordes redondeados */
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);  /* sombra elegante */
+  width: 200px;
+  padding: 10px 0;
+  z-index: 1000;
+}
+
+/* Mostrar dropdown al pasar el cursor */
+.has-dropdown:hover .dropdown {
+  display: block;
+}
+
+/* Estilo para los <li> dentro del dropdown */
+.dropdown li {
+  padding: 10px 20px;
+  transition: background 0.3s ease;
+}
+
+/* Estilo para los enlaces */
+.dropdown li a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  transition: color 0.3s ease;
+}
+
+/* Hover efecto para fondo y texto */
+.dropdown li:hover {
+  background-color: #333;
+}
+
+.dropdown li a:hover {
+  color: #00aced;  /* azul brillante o puedes cambiarlo */
+}
+
+.btn-exit {
+           /* Se mantiene visible al hacer scroll */
+  right: 2vw;              /* Aprox. 1cm en pantallas grandes, escala en pantallas pequeñas */
+  padding: 0px 20px;
+  background-color: #c0392b;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1rem;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;
+  z-index: 999; 
+  text-align: center;         /* Asegura que esté por encima de otros elementos */
+}
+
+/* Hover */
+.btn-exit:hover {
+  background-color: #e74c3c;
+}
+
+/* Responsive: en pantallas pequeñas, ajustar tamaño del botón */
+@media (max-width: 600px) {
+  .btn-todos {
+    top: 200px;
+    right: 4vw;
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+}
