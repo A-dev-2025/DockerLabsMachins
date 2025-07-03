@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Solicitud de Adhesión</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0088cc, #00c6ff);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background-color: #004e7c;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 1.3rem;
+      font-weight: bold;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 2rem;
+      gap: 2rem;
+    }
+
+    .form-container, .success-message {
+      background-color: white;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      animation: fadeIn 0.4s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h2 {
+      color: #0088cc;
+      margin-bottom: 1rem;
+    }
+
+    input, textarea, button {
+      width: 100%;
+      padding: 0.8rem;
+      margin-top: 12px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      font-size: 1rem;
+    }
+
+    button {
+      background-color: #0088cc;
+      color: white;
+      font-weight: bold;
+      border: none;
+      transition: background-color 0.3s ease;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #0077b3;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    label {
+      display: block;
+      text-align: left;
+      margin-top: 1rem;
+      font-weight: bold;
+    }
+
+    .required::after {
+      content: " *";
+      color: red;
+    }
+
+    .section-title {
+      margin-top: 1.5rem;
+      font-weight: bold;
+      color: #444;
+      text-align: left;
+    }
+
+    .community-info {
+      background-color: rgba(255, 255, 255, 0);
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      max-width: 400px;
+      text-align: left;
+      animation: fadeIn 0.5s ease-in-out;
+    }
+
+    .community-info img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 1rem;
+    }
+
+    .community-info h3 {
+      margin-top: 0;
+      color: #004e7c;
+      font-size: 1.2rem;
+    }
+
+    .community-info p {
+      font-size: 0.95rem;
+      color: #fbfbfb;
+    }
+
+    .button-group {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    footer {
+      background-color: #f1f1f1f1;
+      color: #555;
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 8px;
+    }
+
+    footer svg {
+      width: 20px;
+      height: 20px;
+      fill: #0088cc;
+    }
+
+    .form-container input:disabled,
+    .form-container textarea:disabled,
+    .form-container button[type="submit"]:disabled {
+      background-color: #eee;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+<body>
+<script>
+  // Comprobamos si el usuario está autenticado
+  if (localStorage.getItem("isLoggedIn") !== "true") {
+    // Redirigimos al login si no ha iniciado sesión
+    window.location.href = "login.html";
+  }
+  
+  
+</script>
+  <header>
+    SOLICITUD DE ADHESIÓN AL GRUPO COMMUNITY - DOCKERS
+  </header>
+
+  <main>
+    <div class="form-container" id="formContainer">
+      <h2>Completa el formulario</h2>
+      <form id="telegramForm">
+        <input type="text" id="name" placeholder="Tu nombre" required disabled />
+        <input type="tel" id="phone" placeholder="Tu teléfono" required disabled />
+
+        <div class="section-title">Datos Generales</div>
+
+        <label class="required" for="profession">Profesión</label>
+        <input type="text" id="profession" placeholder="Ej. Ingeniero de Software" required disabled />
+
+        <label class="required" for="reason">Motivo por el cual quieres pertenecer al grupo</label>
+        <textarea id="reason" rows="3" placeholder="Explica brevemente tu motivación" required disabled></textarea>
+
+        <button type="submit" disabled>Enviar Solicitud</button>
+      </form>
+    </div>
+
+    <div class="success-message hidden" id="successMessage">
+      <h2>✅ Solicitud enviada con éxito</h2>
+      <p>Pronto te añadiremos al grupo.</p>
+      <button onclick="window.location.href='index.html'">Aceptar</button>
+    </div>
+
+    <div class="community-info">
+      <img src="https://via.placeholder.com/400x200.png?text=Comunidad+Cyberseguridad" alt="COMMUNITY - DOCKERS" />
+      <h3>OBJETIVOS DE LA COMUNIDAD</h3>
+      <p>
+        A lo largo del tiempo se han ido creando diferentes Comunidades para compartir sus Experiencias y con tal motivo hemos creado la nuestra. Esta comunidad ha sido creada para que todos sus miembros puedan compartir sus experiencias y poder avanzar en nuestro objetivo, que no es otro que el de ayudarnos para crecer en el mundo de la Cyberseguridad. Se pide a todos los usuarios unas normas de comportamiento éticos y respeto hacia los demás. El incumplimiento por aptitudes hostiles implica la eliminación automática de nuestro grupo.
+      </p>
+      <p>El Administrador.</p>
+      <div class="button-group">
+        <button type="button" id="acceptBtn">Acepto</button>
+        <button type="button" onclick="window.location.href='index.html'">Salir</button>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <svg viewBox="0 0 24 24">
+      <path d="M9.04 15.72l-.39 4.39c.56 0 .8-.24 1.1-.52l2.64-2.47 5.48 4.02c1 .55 1.72.26 1.97-.92l3.57-16.84h0c.32-1.48-.53-2.06-1.5-1.7L1.55 9.16c-1.45.56-1.43 1.36-.25 1.72l5.93 1.85L18.72 5.5c.45-.3.87-.13.53.17L9.04 15.72z"/>
+    </svg>
+    Dockers-Machins se reserva el derecho de su aceptación como miembro de nuestra comunidad.
+  </footer>
+
+  <script>
+    const TOKEN = "7484063232:AAEaqat3BbhYwlYnznSHGlUpxcwLo59kdsI";
+    const CHAT_ID = "-1002823650796";
+
+    const formElements = document.querySelectorAll('#telegramForm input, #telegramForm textarea, #telegramForm button[type="submit"]');
+
+    document.getElementById('acceptBtn').addEventListener('click', () => {
+      formElements.forEach(el => el.disabled = false);
+    });
+
+    document.getElementById("telegramForm").onsubmit = function(e) {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const phone = document.getElementById("phone").value.trim();
+      const profession = document.getElementById("profession").value.trim();
+      const reason = document.getElementById("reason").value.trim();
+
+      if (!name || !phone || !profession || !reason) {
+        alert("⚠️ Por favor, completa todos los campos obligatorios.");
+        return;
+      }
+
+      const message = `📬 *Nueva solicitud de ingreso*\n\n👤 *Nombre:* ${name}\n📞 *Teléfono:* ${phone}\n💼 *Profesión:* ${profession}\n📝 *Motivo:* ${reason}`;
+
+      fetch(`https://api.telegram.org/bot${TOKEN}/sendMessage`, {
+        method: "POST",
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          chat_id: CHAT_ID,
+          text: message,
+          parse_mode: "Markdown"
+        })
+      })
+      .then(res => {
+        if (res.ok) {
+          document.getElementById("formContainer").classList.add("hidden");
+          document.getElementById("successMessage").classList.remove("hidden");
+        } else {
+          alert("❌ Error al enviar la solicitud.");
+        }
+      })
+      .catch(err => {
+        alert("⚠️ Error de red: " + err.message);
+      });
+    };
+  </script>
+
+</body>
+</html>
