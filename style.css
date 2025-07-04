@@ -1,14 +1,20 @@
  
     body {
-      background-color: #0d1117;
+      
+ 
+       background: #161b22;
       color: white;
       font-family: Arial, sans-serif;
       margin: 0;
        padding-bottom: 60px;
-     
+     background-image: url('imagenes/dark.jpg'); /* Ruta de tu imagen */
+      background-size: cover;             /* Ajusta al tamaño completo */
+      background-position: center;        /* Centrada */
+      background-repeat: no-repeat;
+    background: #161b22;
     }
     .cabecera {
-      background-color: #061d3be9;
+      background-color: #061d3b;
      
       width: 100%;
       padding: 1px 0;
@@ -19,7 +25,8 @@
        padding: 0;
        margin: 20;
        align-items: center;
-        
+        position: fixed;
+       z-index: 1000; 
       }
    
     .titulo {
@@ -34,43 +41,16 @@
     .mensaje {
       display: none; 
     }
-    .Categoria {
-      display: none;
-      font-size: 36px;
-      color: #043c4e;
-    }
-    .Categoria2 {
-      display: none;
-      font-size: 36px;
-      color: #03607e;
-    }
-    .Categoria3 {
-      display: none;
-      font-size: 36px;
-      color: #00bfff;
-    }
-    .Categoria4 {
-      display: none;
-      font-size: 36px;
-      color: #00bfff;
-    }
-    .Categoria5 {
-      display: none;
-      font-size: 6px;
-      color: #00bfff;
-    }
+   
 
     .filter-buttons {
       background-color: #071c3700; 
-        padding: 20px 20px;
+        padding: 130px 20px;
        
       margin-bottom: 30px;
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
-     
-
-      
     }
 
     .filter-buttons button {
@@ -132,6 +112,7 @@
       display: flex;
       flex-wrap: wrap;
       gap: 20px;
+     
     }
 
     .card {
@@ -215,7 +196,7 @@
        padding: 0px 0;
        box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
        position: fixed;
-
+    
     }
     .footer h3 {
       color: #A70A15;
@@ -242,7 +223,7 @@
         
         width: 400px;
       height: auto;
-     position: absolute;
+     position: fixed;
      top: 400px;
      left: 300px;
 
@@ -372,16 +353,7 @@
  
 
 
-  .bottom {
-    
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 100vw - 3em;
-    margin: auto;
-    position: relative;
-   
-  }
+
 
 .red {
   color: #ffffff;
@@ -513,12 +485,12 @@ a.toggle:hover {
   color: white;
   border: none;
   border-radius: 5px;
-  cursor: pointer;
-  font-weight: bold;
+  
+  
   font-size: 1rem;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   transition: background-color 0.3s ease;
-  z-index: 999; 
+ 
   text-align: center;         /* Asegura que esté por encima de otros elementos */
 }
 
